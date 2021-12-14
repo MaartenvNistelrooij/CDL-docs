@@ -1,4 +1,0 @@
-.. _`mga_dsm_optimization`:
-
-MGA-DSM Optimization
-========================================
