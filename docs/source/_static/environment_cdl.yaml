@@ -1,0 +1,24 @@
+name: tudat-bundle-1
+channels:
+  - conda-forge
+  - tudat-team
+dependencies:
+  - eigen
+  - boost-cpp=1.72
+  - tudat-resources
+  - sofa-cmake
+  - cspice-cmake
+  - python=3.8
+  - pybind11
+  - pybind11-abi
+  - numpy
+  - matplotlib # for tudat.plotting
+  - basemap # for tudat.plotting
+  - pytest
+  - pygmo
+  - pandas
+  - jdcal
+  - xlsxwriter
+  - openpyxl
+  - ast
+  - regex
