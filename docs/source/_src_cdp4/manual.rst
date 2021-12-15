@@ -2,4 +2,7 @@
 CDP4 Manual
 =============
 
-Put CDP4 manual here.
+Work in progress, expected soon
+
+.. Put CDP4 manual here
+

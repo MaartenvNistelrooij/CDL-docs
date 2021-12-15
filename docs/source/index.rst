@@ -8,15 +8,21 @@ Good examples of such project within the AE curriculum are the Design Synthesis 
 Interdisciplinary Project (JIP). The CDL mimicks the concurrent design approach taken in industry.
 
 This documentation will present sample scripts that have been developed specifically for multidisciplinary work within
-the spacefligh domain. The documentation consists of two parts, which relate to two different software packages: CDP4
+the spaceflight domain. The documentation consists of two parts, which relate to two different software packages: CDP4
 and TudatPy.
 
 CDP4
 -------
-.. warning::
 
-    TO DO: Short introduction to the Concurrent Design Platform 4
-    TO DO: include CDP4 manual transcript
+Work in progress, expected soon
+
+.. TO DO: Short introduction to the Concurrent Design Platform 4
+.. TO DO: include CDP4 manual transcript -> take from CDP4 manual
+
+.. toctree::
+   :maxdepth: 3
+
+   _src_cdp4/manual
 
 
 Tudat(Py)
@@ -24,7 +30,7 @@ Tudat(Py)
 
 The TU Delft Astrodynamics Toolbox (Tudat) is a powerful set of libraries that support astrodynamics and space research.
 One of the key strengths within Tudat is its ability to combine such libraries in a powerful simulator framework. Such
-framework can be used for a wide variety of purposes, ranging from the study of reentry dynamic to interplanetary missions.
+framework can be used for a wide variety of purposes, ranging from the study of reentry dynamics to interplanetary missions.
 The functionality of Tudat is implemented in C++, but a Python interface, called Tudatpy, is available, through
 which the core simulation functionality can be accessed. Tudat and Tudatpy are disseminated as conda packages, to get
 started on them, have a look at the Tudat(Py) `documentation`_  and `installation`_ guide.
@@ -35,26 +41,22 @@ started on them, have a look at the Tudat(Py) `documentation`_  and `installatio
 .. note::
 
     A CDL specific :download:`environment.yaml <_static/environment_cdl.yaml>` file was created, which contains all the packages required for the TudatPy scripts
-    developed for the CLD. For beginners, it is advised to use this environment file, instead of the one that comes with
+    developed for the CDL. For beginner Tudat(Py) users, it is advised to use this environment file, instead of the one that comes with
     the Tudat(Py) installation.
 
 .. toctree::
    :maxdepth: 3
-   :caption: CDP4
-   :hidden:
-
-   _src_cdp4/manual
-
-.. toctree::
-   :maxdepth: 3
-   :caption: Tudat(Py)
-   :hidden:
 
    _src_tudatpy/tudatpy
 
+
+Templates and scripts
+---------------------------
+
+Both for CDP4 and Tudat(Py), templates and example scripts have been developed that are ready for use. These templates
+and script can  be found on the download page:
+
 .. toctree::
-   :maxdepth: 2
-   :caption: Downloads
-   :hidden:
+   :maxdepth: 3
 
    _src_downloads/downloads

@@ -1,4 +1,6 @@
 .. _`mga_dsm_save_to_excel`:
 
-MGA-DSM Save results to Excel
+MGA-DSM save results to Excel
 ========================================
+
+Work in progress, expected soon
