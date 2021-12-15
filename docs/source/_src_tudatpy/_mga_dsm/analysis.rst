@@ -3,13 +3,12 @@
 MGA-DSM Analysis
 ========================================
 
+Work in progress, expected to be updated soon
+
 
 In the following sections the definition and analysis of MGA-DSM trajectories within the context of the CDL is
 explained. The code that would be used when studying these trajectories is presented, and the differences between
 the definition of trajectories with and without DSMs are highlighted. The full codes can be downloaded through:
-
-| :download:`Trajectory without DSMs <_static/mga_noDsm_test.py>`
-| :download:`Trajectory with DSMs <_static/mga_dsm_test.py>`
 
 An MGA-DSM trajectory is defined using the ``MgaDsmTrajectory`` class, thus requiring the following import statement
 
@@ -31,7 +30,7 @@ Each trajectory is defined as a series of nodes (the planets where the gravity-a
 series of legs (which may or may not have DSMs).
 
 
-1. Selection of trajectory settings
+Selection of trajectory settings
 -------------------------------------------------
 
 The first step necessary is the creation of an object of the ``MgaDsmTrajectory`` class. This requires defining the
@@ -55,24 +54,8 @@ is used, this means that the spacecraft departs/arrives from/at the edge of the 
     TODO: worth mentioning here the definition of bodies?
 .. End of warning
 
-.. tabs::
 
-    .. tab:: without DSM
-
-        .. literalinclude:: _static/mga_noDsm_test.py
-            :language: python
-            :lines: 31-49
-
-    .. tab:: with DSM
-
-        .. literalinclude:: _static/mga_dsm_test.py
-            :language: python
-            :lines: 31-49
-
-.. end of tab
-
-
-2. Selection of trajectory parameters
+Selection of trajectory parameters
 -------------------------------------------------
 
 After creating the ``MgaDsmTrajectory`` object, it is necessary to select the various parameters that define the
@@ -108,42 +91,22 @@ In the case of a transfer **with** DSMs one needs to define:
 
 The selection of the trajectory parameters is done through the ``evaluate()`` function:
 
-.. tabs::
+.. code-block:: python
 
-    .. tab:: without DSM
+    # Retrieving duration of julian day from TudatPy's constants
+    julian_day = constants.JULIAN_DAY
 
-        .. code-block:: python
+.. End of code block
 
-            # Retrieving duration of julian day from TudatPy's constants
-            julian_day = constants.JULIAN_DAY
-        .. End of code block
 
-        .. literalinclude:: _static/mga_noDsm_test.py
-            :language: python
-            :lines: 59-66
-
-    .. tab:: with DSM
-
-        .. code-block:: python
-
-            # Retrieving duration of julian day from TudatPy's constants
-            julian_day = constants.JULIAN_DAY
-        .. End of code block
-
-        .. literalinclude:: _static/mga_dsm_test.py
-            :language: python
-            :lines: 59-74
-
-.. end of tab
-
-3. Retrieving transfer trajectory data
+Retrieving transfer trajectory data
 --------------------------------------------------------
 
 Having selected the trajectory parameters, it is then possible to retrieve various data from the ``MgaDsmTrajectory``
 object. From this point onwards, there is no difference between a trajectory with DSMs and one without.
 
-3.1. Calculation of :math:`\Delta V` and time of flight
-==========================================================
+Calculation of :math:`\Delta V` and time of flight
+****************************************************************
 
 The :math:`\Delta V`, :math:`\Delta V` per node (i.e. per gravity-assist), :math:`\Delta V` per leg
 (i.e. per DSM) and time of flight can be retrieved via:
@@ -160,8 +123,8 @@ The :math:`\Delta V`, :math:`\Delta V` per node (i.e. per gravity-assist), :math
     time_of_flight = transfer_trajectory.time_of_flight()
 .. End of code block
 
-3.2. State history and other variables history
-==========================================================
+State history and other variables history
+****************************************************************
 
 Finally, there is a series of functions which allow retrieving the value of different variables throughout the transfer.
 Each of these functions returns two objects, both of type ``np.ndarray``, in the form ``variable_history, time_history``.
@@ -172,8 +135,6 @@ of values outputted per leg.
     TODO: Is the previous sentence understandable?
 .. End of warning
 
-State history
-#########################################################
 
 The state history with respect to the Sun or the planets of the Solar System can be retrieved via ``state_history()``:
 
@@ -188,7 +149,8 @@ The state history with respect to the Sun or the planets of the Solar System can
 .. End of code block
 
 Solar flux
-#########################################################
+****************************************************************
+
 The total incident solar flux in the location of the spacecraft can be retrieved with ``total_solar_flux()``:
 
 .. code-block:: python
@@ -220,7 +182,7 @@ Thus, the effective solar flux is computed, using ``effective_solar_flux()``, ac
 .. End of warning
 
 Link budget
-#########################################################
+****************************************************************
 
 The link budget can be retrieved using the ``link_budget()`` function. It requires the definition of:
 
@@ -244,7 +206,7 @@ The link budget can be retrieved using the ``link_budget()`` function. It requir
 .. End of code block
 
 Communications time per day
-#########################################################
+****************************************************************
 
 To calculate the time available for communications per day it is first necessary to define a
 ground station, through the ``add_ground_station_simple()`` function.

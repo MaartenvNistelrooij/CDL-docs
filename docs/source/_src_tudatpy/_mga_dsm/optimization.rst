@@ -2,68 +2,71 @@
 
 MGA-DSM Optimization
 ========================================
-of
-In the following sections the optimization  MGA-DSM trajectories within the context of the CDL is explained through an
-example. If you are unfamiliar with optimizations within Tudat(py) and/or `Pygmo`_, please refer to :ref:`pygmo_basics` first.
-The optimizer will search for optimal solutions in terms of two objectives: :math:`\Delta V` and time of flight. The Pareto
-fronts that result from the optimization are always saved and can be viewed in order to identify specific solutions that
+
+In the following section the optimization of MGA-DSM trajectories is explained. If you are unfamiliar with optimizations
+within Tudat(py) and/or `PyGMO`_, please refer to `Using Tudat(Py) with PyGMO`_ first.
+
+.. _`PyGMO`: https://esa.github.io/pygmo2/index.html
+.. _`Using Tudat(Py) with PyGMO`: https://tudat-space.readthedocs.io/en/latest/_src_resources/pygmo_basics.html
+
+The script
+---------------------------------------
+
+The optimizer will search for optimal solutions in terms of two objectives: :math:`\Delta V` and time of flight. The `Pareto
+fronts`_ that result from the optimization are always saved and can be plotted in order to identify specific solutions that
 are to be analyzed further, in terms of available communication time, incident solar flux and other quantities.
 
-.. _`Pygmo`: https://esa.github.io/pygmo2/index.html
+.. _`Pareto fronts`: https://en.wikipedia.org/wiki/Pareto_front
 
-1. Definition of inputs and optimization settings
+The optimization can be performed, with the settings as defined in the input file, without any further modifications or other
+settings to be defined, with ``transfer_trajectory/transfer_trajectory_optimization.py``. This script imports the required
+packages, modules, functions and variables and performs the optimization. A user defined problem (UDP) class is defined in
+``src/TransferTrajectoryOptimizer.py`` as required by PyGMO. This class contains an additional function that runs the
+actual optimization. The Non-dominated Sorting Genetic Algorithm 2 (NSGA2) has been implemented with default settings.
+This algorithm was chosen based on its performance in multiple case studies, where it outperformed the other Multi-Objective
+optimizers available in PyGMO.
+
+During the optimization, the parameters and fitness values of every 100th generation are saved to text files, which can
+be used for reference later on, for example to check convergence of the optimization. Afterwards, the Pareto front is
+obtained from the final generation, plotted and optionally saved in PDF format. The corresponding parameters and fitness
+values are also saved to text files. If multiple planet sequences are given in ``transfer_body_orders``, the next planet
+sequence is optimized subsequently. Otherwise, the script terminates and the Pareto front(s)
+can be analyzed in order to choose solutions that are interesting for further analysis.
+
+Creating the UDP and performing the optimization are done with the code snippet below. This also illustrates that the
+departure and arrival orbit characteristics and seed are optional inputs, as explained in :ref:`mga_dsm_inputs`.
+
+.. code-block:: python
+
+    from src.TransferTrajectoryOptimizer import TransferTrajectoryOptimizer
+
+    optimizer = TransferTrajectoryOptimizer(number_of_evolutions,
+                                            population_size,
+                                            departure_date,
+                                            departure_date_margin,
+                                            maximum_delta_v,
+                                            leg_type,
+                                            transfer_body_order,
+                                            departure_semi_major_axis=departure_semi_major_axis,
+                                            departure_eccentricity=departure_eccentricity,
+                                            arrival_semi_major_axis=arrival_semi_major_axis,
+                                            arrival_eccentricity=arrival_eccentricity,
+                                            seed=optimization_seed)
+
+    pareto_fitness, results_directory = optimizer.perform_optimization(curren_dir)
+
+.. End of code block
+
+Tips & Tricks to help the optimization
 -------------------------------------------------
-First and foremost, the input for the transfer trajectory and the optimization settings are to be defined. The settings
-which are to be specified are the same, for transfers *with* or *without* DSMs, although the exact values are to be chosen
-according to the specific transfer type:
 
-.. literalinclude:: _static/transfer_trajectory_inputs.py
-    :language: python
-    :lines: 9-44
-
-Download: :download:`Inputs <_static/transfer_trajectory_inputs.py>`
-
-
-1.5. Number of evolutions and population size
-===========================================================
-The optimization settings include the ``number_of_evolutions``, ``population_size``, ``optimization_seed`` and ``maximum_delta_v``,
-of which the first two are most crucial. Good values for these parameters are heavily dependent on your problem definition,
-i.e.  mostly on ``transfer_body_orders`` and ``leg_type``. Moreover, it is important to consider the number of parameters
-in your problem before choosing these values. In general, the more parameters in your problem, the larger the population
-size and the more evolutions are required to obtain good results.
-
-The number of parameters within a problem *without* DSMs is equal to the number of planets that are flown by (including the
-departure and destination planet). In contrast, the number of parameters within a problem *with* DSMs is equal to the number
-of planets that are flown by (including the departure and destination planet) *plus* four times the number of legs that are
-flown. The number of parameters for a problem *with* DSMs is thus significantly larger than for one *without*. This more
-elaborate problem definition makes it computationally more expensive to optimize.
-
-The following table presents a good choice of optimization settings for two case studies along with their problem characteristics:
-
-========  ================================================  ============================ ========================= ===================== =====================
-  DSM?     Planet sequence                                   Number of parameters         Number of evolutions      Population size       Optimization runtime
-========  ================================================  ============================ ========================= ===================== =====================
-   No       Earth, Venus, Venus, Earth, Jupiter, Saturn      6                            3000                      500                    ~3 minutes
-   Yes      Earth, Earth, Venus, Venus, Mercury              21                           2000                      2000                   ~15 minutes
-========  ================================================  ============================ ========================= ===================== =====================
-
-This shows that it is significantly more effective to increase the population size to optimize a more complex problem, than to perform
-more evolutions.
-
-Do note, for a problem *without* DSMs it is recommended to pick a large value for the number of generations and be
-on the 'safe side' for the optimization, as the cost in runtime is not too large. This is not the case for a problem *with*
-DSMs, where an evolution costs significantly more time.
-
-
-1.6. Tricks to help the optimization
-===========================================================
-It may occur that the optimization does not yield expected or even satisfactory results. This may be because the problem
+It may occur that the optimization does not yield expected, or even satisfactory, results. This may be because the problem
 definition is not ideal, but it may also be that the optimal solutions are simply not found. In the latter case there are a
-few things that can be done to 'manipulate' the optimization:
+few things that can be done to 'manipulate' or 'tweak' the optimization:
 
 * *Pick a different*  ``optimization_seed``
     The seed is used for two purposes: to create the initial population and to initialize the optimization algorithm. By
-    specifying a different seed, the starting point for the optimizaton is different and the final results may be better.
+    specifying a different seed, the starting point for the optimization is different and the final results may be better.
 
 * *Set* ``maximum_delta_v``
     It is possible to try and force the optimization towards solutions with lower :math:`\Delta V`. This can be done by specifying
@@ -72,7 +75,7 @@ few things that can be done to 'manipulate' the optimization:
     :math:`\Delta V` is too low, the optimization may not find any solutions satisfying it at all and won't give you any
     solutions that are not penalized. The default is set to :math:`2e8` m/s, so that it is practically ineffective.
 
-* *Increase population size*
+* *Increase* ``population_size``
     Increasing the population size (even only slightly) will yield a different initial population, thereby affecting
     the entire evolution and may therefore yield better solutions (maybe even in less evolutions).
 
@@ -81,30 +84,12 @@ few things that can be done to 'manipulate' the optimization:
     be better to reduce the number of parameters, either by not using DSMs or by reducing the number of planets that are
     visited.
 
-Lastly, it was noted that the time of flight range in the Pareto front is rather limited in some cases. In this case it
-may be that the optimization has found optimal solutions for this range, but that these are not acceptable and that larger
-times of flight need to be explored. This may be achieved with the above tricks (e.g. it is adviced to try setting a maximum
-:math:`\Delta V` first), but there is one more trick:
+Lastly, during the analysis of a few case studies, it was noted that the time of flight range in the Pareto front is
+rather limited in some cases. In this case it may be that the optimization has found optimal solutions for this range,
+but that these are not acceptable and that larger times of flight need to be explored. This may be achieved with the
+above tricks (e.g. it is advised to try setting a maximum :math:`\Delta V` first), but there is one more trick:
 
-* *Increase minimum times of flight* in :download:`Constants <_static/constants.py>`
-    In this file the boundaries as used in the optimization regarding time of flight are defined in days, depending on the planet
+* *Increase values in* ``MINIMUM_TIME_OF_FLIGHT_DICT`` *and* ``MAXIMUM_TIME_OF_FLIGHT_DICT`` *in* ``transfer_trajectory/transfer_trajectory_inputs.py``
+    In this file the boundaries as used in the optimization, regarding time of flight, are defined, depending on the planet
     that defines the end of a leg. One can increase the minima (and possibly increase the maxima) to move (and extend) the
     time of flight range of the Pareto front.
-
-2. Perform the optimization
--------------------------------------------------
-The optimization can be run with the settings as defined before, without any further modifications or other settings to
-be defined, with the following file:
-
-:download:`Optimization of MGA-DSM trajectories <_static/transfer_trajectory_optimization.py>`
-
-This script imports the required packages, modules, functions and variables. First, a problem class is defined,
-as required by Pygmo to perform the optimization. Subsequently, the optimization is run and the parameters and fitness of
-every 100th generation are saved to text files, which can be used for reference later on, for example to check convergence
-of the optimization. Afterwards, the Pareto front is obtained from the final generation, plotted and saved in PDF format.
-The corresponding parameters and fitness values are also saved to text files. If multiple planet sequences are given in
-``transfer_body_orders``, the next planet sequence is optimized next. Otherwise, the script terminates and the Pareto front(s)
-can be analyzed in order to choose solutions that are interesting for further analysis.
-
-.. warning::
-    TODO: Include some code here to demonstrate?

@@ -1,14 +1,6 @@
-.. _`orbiter_introduction`:
+.. _`orbiter_inputs`:
 
-Orbiter
-============
+Orbiter inputs
+====================
 
-
-Downloads
-------------
-
-
-
-
-Orbiter
-------------
+Work in progress, expected soon
