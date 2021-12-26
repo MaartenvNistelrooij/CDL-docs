@@ -1,0 +1,266 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MGA-DSM general information &mdash; CDL-docs 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/contentui.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/tabs.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/contentui.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="MGA-DSM Inputs" href="inputs.html" />
+    <link rel="prev" title="Tudat(Py)" href="../tudatpy.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> CDL-docs
+          
+
+          
+            
+            <img src="../../_static/cover.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../_src_cdp4/manual.html">CDP4 Manual</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../tudatpy.html">Tudat(Py)</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../tudatpy.html#mga-dsm-transfers">MGA-DSM transfers</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">MGA-DSM general information</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#approach">Approach</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#implemented-bodies">Implemented bodies</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="inputs.html">MGA-DSM Inputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optimization.html">MGA-DSM Optimization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="analysis.html">MGA-DSM Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="save_to_excel.html">MGA-DSM save results to Excel</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tudatpy.html#orbital-phase">Orbital phase</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../_src_downloads/downloads.html">Downloads for the Collaborative Design Lab</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">CDL-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../tudatpy.html">Tudat(Py)</a> &raquo;</li>
+        
+      <li>MGA-DSM general information</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/_src_tudatpy/_mga_dsm/general.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="mga-dsm-general-information">
+<span id="mga-dsm-general"></span><h1>MGA-DSM general information<a class="headerlink" href="#mga-dsm-general-information" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="approach">
+<h2>Approach<a class="headerlink" href="#approach" title="Permalink to this headline">¶</a></h2>
+<p>The general approach taken in the design/analysis of MGA-DSM trajectories is to specify inputs and perform optimizations to
+find good cases. These good cases are then analysed in more detail to finally choose one case and use its results for the
+spacecraft design. This approach comes to light in the form of four files that can be handled in order and iteratively
+to find good transfer trajectories, in terms of <span class="math notranslate nohighlight">\(\Delta V\)</span> and time of flight (optimization) and communication time,
+link budget and solar flux (analysis).</p>
+</div>
+<div class="section" id="implemented-bodies">
+<h2>Implemented bodies<a class="headerlink" href="#implemented-bodies" title="Permalink to this headline">¶</a></h2>
+<p>Even though Tudat(Py) has many planets and moons implemented with default environment models, the CDL scripts were written
+to facilitate working with the bodies specified below. These bodies have characteristics included in <code class="docutils literal notranslate"><span class="pre">src/SolarSystemConstants.py</span></code>
+and <code class="docutils literal notranslate"><span class="pre">transfer_trajectory/transfer_trajectory_inputs.py</span></code> for analysis purposes. Users are encouraged to add additional bodies and their
+characteristics.</p>
+<p>Implemented bodies:</p>
+<ul class="simple">
+<li><p>Sun</p></li>
+<li><p>Mercury</p></li>
+<li><p>Venus</p></li>
+<li><p>Earth</p></li>
+<li><p>Moon</p></li>
+<li><p>Mars</p></li>
+<li><p>Jupiter</p></li>
+<li><p>Saturn</p></li>
+<li><p>Uranus</p></li>
+<li><p>Neptune</p></li>
+<li><p>Pluto</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="inputs.html" class="btn btn-neutral float-right" title="MGA-DSM Inputs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../tudatpy.html" class="btn btn-neutral float-left" title="Tudat(Py)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2021, Concurrent Design Lab AE
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

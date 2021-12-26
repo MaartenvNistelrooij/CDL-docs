@@ -1,0 +1,403 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MGA-DSM Analysis &mdash; CDL-docs 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/contentui.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/tabs.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/contentui.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="MGA-DSM save results to Excel" href="save_to_excel.html" />
+    <link rel="prev" title="MGA-DSM Optimization" href="optimization.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> CDL-docs
+          
+
+          
+            
+            <img src="../../_static/cover.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../_src_cdp4/manual.html">CDP4 Manual</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../tudatpy.html">Tudat(Py)</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../tudatpy.html#mga-dsm-transfers">MGA-DSM transfers</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="general.html">MGA-DSM general information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="inputs.html">MGA-DSM Inputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optimization.html">MGA-DSM Optimization</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">MGA-DSM Analysis</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#selection-of-trajectory-settings-and-creations-of-transfer-trajectory">Selection of trajectory settings and creations of transfer trajectory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#calculating-transfer-trajectory-data">Calculating transfer trajectory data</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="save_to_excel.html">MGA-DSM save results to Excel</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tudatpy.html#orbital-phase">Orbital phase</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../_src_downloads/downloads.html">Downloads for the Collaborative Design Lab</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">CDL-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../tudatpy.html">Tudat(Py)</a> &raquo;</li>
+        
+      <li>MGA-DSM Analysis</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/_src_tudatpy/_mga_dsm/analysis.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="mga-dsm-analysis">
+<span id="id1"></span><h1>MGA-DSM Analysis<a class="headerlink" href="#mga-dsm-analysis" title="Permalink to this headline">¶</a></h1>
+<p>In the following section the analysis of MGA-DSM trajectories is explained. The code is structures as follows:
+(1) selection of the individuals from the generated Pareto front (see <a class="reference internal" href="optimization.html#mga-dsm-optimization"><span class="std std-ref">MGA-DSM Optimization</span></a>) to be further analysed;
+(2) creation of transfer trajectory object; (3) analysis of transfer trajectory.</p>
+<div class="section" id="selection-of-trajectory-settings-and-creations-of-transfer-trajectory">
+<h2>Selection of trajectory settings and creations of transfer trajectory<a class="headerlink" href="#selection-of-trajectory-settings-and-creations-of-transfer-trajectory" title="Permalink to this headline">¶</a></h2>
+<p>The selection of the transfer trajectories to be analysed is done through the
+<code class="docutils literal notranslate"><span class="pre">get_user_input_for_analysis(...)</span></code> and <code class="docutils literal notranslate"><span class="pre">get_trajectory_parameters_of_desired_solutions(...)</span></code> functions.
+These functions first prompt the user to select which of the of the optimized transfer body orders will be
+analysed. Second, for the selected transfer body order, the user is asked to select
+the transfer trajectory or trajectories to analyse; this can be done by selecting either the <span class="math notranslate nohighlight">\(\Delta V\)</span>
+or time of flight of the solutions of interest. Based on these inputs, the script retrieves the set of trajectory
+parameters that define each of the trajectories to be further analysed.</p>
+<p>Next the transfer trajectory needs to be created. This is done following exactly the same logic as described in
+<a class="reference external" href="https://tudat-space.readthedocs.io/en/latest/_src_getting_started/_src_examples/mga_dsm_examples/mga_dsm_analysis.html">Tudat(Py) MGA-DSM Analysis example</a>.
+First, the system of bodies to be used in the transfer trajectory is created:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create system of bodies</span>
+<span class="n">bodies</span> <span class="o">=</span> <span class="n">environment_setup</span><span class="o">.</span><span class="n">create_simplified_system_of_bodies</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Second, the transfer trajectory is created and evaluated. Here, that step is done by simply calling the following
+function:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create transfer trajectory and evaluate it</span>
+<span class="n">transfer_trajectory</span> <span class="o">=</span> <span class="n">TransferTrajectoryAnalysis</span><span class="o">.</span><span class="n">create_and_evaluate_transfer_trajectory</span><span class="p">(</span>
+    <span class="n">bodies</span><span class="p">,</span>
+    <span class="n">leg_type</span><span class="p">,</span>
+    <span class="n">transfer_body_order</span><span class="p">,</span>
+    <span class="n">trajectory_parameters</span><span class="p">,</span>
+    <span class="n">departure_semi_major_axis</span><span class="p">,</span>
+    <span class="n">departure_eccentricity</span><span class="p">,</span>
+    <span class="n">arrival_semi_major_axis</span><span class="p">,</span>
+    <span class="n">arrival_eccentricity</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>All the inputs to the <code class="docutils literal notranslate"><span class="pre">create_and_evaluate_transfer_trajectory(...)</span></code> function are either retrieved
+by the script based on the selection of the transfer trajectories to analyse, or manually specified
+by the user in the input file (see <a class="reference internal" href="inputs.html#mga-dsm-inputs"><span class="std std-ref">MGA-DSM Inputs</span></a>).</p>
+</div>
+<div class="section" id="calculating-transfer-trajectory-data">
+<h2>Calculating transfer trajectory data<a class="headerlink" href="#calculating-transfer-trajectory-data" title="Permalink to this headline">¶</a></h2>
+<p>Having selected the trajectory parameters, it is possible to run various functions to further analyse the
+trajectory. All the generated data is saved to text files, located in directories named according to
+the <span class="math notranslate nohighlight">\(\Delta V\)</span> and time of flight of the analysed trajectory. As mentioned in <a class="reference internal" href="inputs.html#mga-dsm-inputs"><span class="std std-ref">MGA-DSM Inputs</span></a>, the
+user can select whether the data should also be plotted.</p>
+<div class="section" id="calculation-of-delta-v-and-time-of-flight">
+<h3>Calculation of <span class="math notranslate nohighlight">\(\Delta V\)</span> and time of flight<a class="headerlink" href="#calculation-of-delta-v-and-time-of-flight" title="Permalink to this headline">¶</a></h3>
+<p>The <span class="math notranslate nohighlight">\(\Delta V\)</span>, <span class="math notranslate nohighlight">\(\Delta V\)</span> per node (i.e. departure <span class="math notranslate nohighlight">\(\Delta V\)</span>, <span class="math notranslate nohighlight">\(\Delta V\)</span> per
+gravity-assist and insertion <span class="math notranslate nohighlight">\(\Delta V\)</span>), <span class="math notranslate nohighlight">\(\Delta V\)</span> per leg
+(i.e. per DSM) and time of flight are retrieved via:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Delta V [m/s]</span>
+<span class="n">delta_v</span> <span class="o">=</span> <span class="n">transfer_trajectory</span><span class="o">.</span><span class="n">delta_v</span>
+<span class="c1"># Delta V per node [m/s]</span>
+<span class="n">delta_v_per_node</span> <span class="o">=</span> <span class="n">transfer_trajectory</span><span class="o">.</span><span class="n">delta_v_per_node</span>
+<span class="c1"># Delta V per leg [m/s]</span>
+<span class="n">delta_v_per_leg</span> <span class="o">=</span> <span class="n">transfer_trajectory</span><span class="o">.</span><span class="n">delta_v_per_leg</span>
+<span class="c1"># Time of flight [s]</span>
+<span class="n">time_of_flight</span> <span class="o">=</span> <span class="n">transfer_trajectory</span><span class="o">.</span><span class="n">time_of_flight</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="state-history">
+<h3>State history<a class="headerlink" href="#state-history" title="Permalink to this headline">¶</a></h3>
+<p>The state history and time history can be retrieved using the <code class="docutils literal notranslate"><span class="pre">get_state_history()</span></code> function, through</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># State history with respect to the Sun</span>
+<span class="n">state_history_wrt_sun</span><span class="p">,</span> <span class="n">time_history</span> <span class="o">=</span> <span class="n">TransferTrajectoryAnalysis</span><span class="o">.</span><span class="n">get_state_history</span><span class="p">(</span>
+    <span class="n">transfer_trajectory</span><span class="p">,</span>
+    <span class="n">bodies</span><span class="p">,</span>
+    <span class="n">reference_body</span> <span class="o">=</span> <span class="s1">&#39;Sun&#39;</span><span class="p">,</span>               <span class="c1"># Optional: default value is &#39;Sun&#39;</span>
+    <span class="n">states_per_leg</span> <span class="o">=</span> <span class="n">STATES_PER_LEG</span>       <span class="c1"># Optional: default value is STATES_PER_LEG = 500</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">reference_body</span></code> argument allows selecting the body with respect to which the state history will be
+retrieved; by default it is assumed to be the central body (i.e. the Sun).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The functions to analyse the state history assume that the used set of <code class="docutils literal notranslate"><span class="pre">bodies</span></code> includes a body corresponding
+to the spacecraft, for which ephemeris are defined. As such, after retrieving the state history, one needs
+to create the spacecraft’s ephemeris, which can be done through</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create spacecraft object in bodies, and define its ephemeris</span>
+<span class="n">bodies</span><span class="o">.</span><span class="n">create_empty_body</span><span class="p">(</span><span class="n">spacecraft_name</span><span class="p">)</span>
+<span class="n">TrajectoryAnalysis</span><span class="o">.</span><span class="n">define_vehicle_ephemeris</span><span class="p">(</span>
+    <span class="n">bodies</span><span class="p">,</span>
+    <span class="n">state_history_wrt_sun</span><span class="p">,</span>
+    <span class="n">time_history</span><span class="p">,</span>
+    <span class="n">spacecraft_name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="solar-flux">
+<h3>Solar flux<a class="headerlink" href="#solar-flux" title="Permalink to this headline">¶</a></h3>
+<p>The total incident solar flux is retrieved through:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Retrieve total solar flux</span>
+<span class="n">total_solar_flux_history</span> <span class="o">=</span> <span class="n">TransferTrajectoryAnalysis</span><span class="o">.</span><span class="n">total_solar_flux</span><span class="p">(</span>
+    <span class="n">bodies</span><span class="p">,</span>
+    <span class="n">time_history</span><span class="p">,</span>
+    <span class="n">spacecraft_name</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Do note that the total solar flux does not take into account the angle of the incident solar radiation, only the
+distance between the Sun and the spacecraft.
+The values of the solar flux are retrieved at the time stamps selected through the <code class="docutils literal notranslate"><span class="pre">time_history</span></code> argument.</p>
+</div>
+<div class="section" id="link-budget">
+<h3>Link budget<a class="headerlink" href="#link-budget" title="Permalink to this headline">¶</a></h3>
+<p>The link budget can be retrieved using the <code class="docutils literal notranslate"><span class="pre">link_budget()</span></code> function. It requires the definition of the
+frequency of the signal,
+power of the transmitter antenna,
+gain of the transmitter antenna and
+gain of the receiver antenna.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Retrieve link budget</span>
+<span class="n">link_budget_history</span> <span class="o">=</span> <span class="n">TransferTrajectoryAnalysis</span><span class="o">.</span><span class="n">link_budget</span><span class="p">(</span>
+    <span class="n">bodies</span><span class="p">,</span>
+    <span class="n">time_history</span><span class="p">,</span>
+    <span class="n">spacecraft_name</span><span class="p">,</span>
+    <span class="n">frequency</span><span class="p">,</span>
+    <span class="n">transmitted_power</span><span class="p">,</span>
+    <span class="n">transmitter_antenna_gain</span><span class="p">,</span>
+    <span class="n">receiver_antenna_gain</span><span class="p">,</span>
+    <span class="n">reference_body</span> <span class="o">=</span> <span class="s1">&#39;Earth&#39;</span>         <span class="c1"># Optional: default value is &#39;Earth&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>The values of the link budget are retrieved at the time stamps selected through the <code class="docutils literal notranslate"><span class="pre">time_history</span></code> argument.
+The link budget is calculated with respect to the body specified through the <code class="docutils literal notranslate"><span class="pre">reference_body</span></code> argument.</p>
+</div>
+<div class="section" id="communications-time-per-day">
+<h3>Communications time per day<a class="headerlink" href="#communications-time-per-day" title="Permalink to this headline">¶</a></h3>
+<p>To calculate the time available for communications per day it is first necessary to define a
+ground station, through the <code class="docutils literal notranslate"><span class="pre">add_ground_station_simple()</span></code> function.
+The ground station is defined by the body it is located on, by its latitude and by its longitude; the body is
+assumed to be spherical.
+By default, the body where the ground station is located is considered to be the Earth, but other options
+may be selected.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add ground station</span>
+<span class="n">TrajectoryAnalysis</span><span class="o">.</span><span class="n">add_ground_station_simple</span><span class="p">(</span>
+        <span class="n">bodies</span><span class="p">,</span>
+        <span class="n">station_name</span><span class="p">,</span>
+        <span class="n">gs_latitude</span><span class="p">,</span>
+        <span class="n">gs_longitude</span><span class="p">,</span>
+        <span class="n">ground_station_body</span> <span class="o">=</span> <span class="s1">&#39;Earth&#39;</span>         <span class="c1"># Optional: default value is &#39;Earth&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Next, one can retrieve the time available for communications per day using the <code class="docutils literal notranslate"><span class="pre">communications_time_per_day()</span></code>
+function.
+This function requires as input the name of the ground station being used and the minimum elevation from which
+communications with the spacecraft are possible.
+When checking the line of sight to the ground station, only the minimum elevation as seen from the ground
+station is taken into account (i.e. occultations produced by bodies other than the <code class="docutils literal notranslate"><span class="pre">ground_station_body</span></code> are
+not verified).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Retrieve communications time per day</span>
+<span class="n">comms_time_per_day</span> <span class="o">=</span> <span class="n">TransferTrajectoryAnalysis</span><span class="o">.</span><span class="n">communications_time_per_day</span><span class="p">(</span>
+        <span class="n">bodies</span><span class="p">,</span>
+        <span class="n">time_history</span><span class="p">,</span>
+        <span class="n">spacecraft_name</span><span class="p">,</span>
+        <span class="n">station_name</span><span class="p">,</span>
+        <span class="n">minimum_elevation</span><span class="p">,</span>
+        <span class="n">ground_station_body</span> <span class="o">=</span> <span class="s1">&#39;Earth&#39;</span>         <span class="c1"># Optional: default value is &#39;Earth&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>The values of the communications time are retrieved at the time stamps selected through the <code class="docutils literal notranslate"><span class="pre">time_history</span></code>
+argument.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="save_to_excel.html" class="btn btn-neutral float-right" title="MGA-DSM save results to Excel" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="optimization.html" class="btn btn-neutral float-left" title="MGA-DSM Optimization" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2021, Concurrent Design Lab AE
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
