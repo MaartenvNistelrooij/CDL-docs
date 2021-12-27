@@ -103,7 +103,7 @@
 <li class="toctree-l3"><a class="reference internal" href="optimization.html">MGA-DSM Optimization</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">MGA-DSM Analysis</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#selection-of-trajectory-settings-and-creations-of-transfer-trajectory">Selection of trajectory settings and creations of transfer trajectory</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#calculating-transfer-trajectory-data">Calculating transfer trajectory data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#calculation-of-analysis-data">Calculation of analysis data</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="save_to_excel.html">MGA-DSM save results to Excel</a></li>
@@ -220,14 +220,14 @@ function:</p>
 by the script based on the selection of the transfer trajectories to analyse, or manually specified
 by the user in the input file (see <a class="reference internal" href="inputs.html#mga-dsm-inputs"><span class="std std-ref">MGA-DSM Inputs</span></a>).</p>
 </div>
-<div class="section" id="calculating-transfer-trajectory-data">
-<h2>Calculating transfer trajectory data<a class="headerlink" href="#calculating-transfer-trajectory-data" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="calculation-of-analysis-data">
+<h2>Calculation of analysis data<a class="headerlink" href="#calculation-of-analysis-data" title="Permalink to this headline">¶</a></h2>
 <p>Having selected the trajectory parameters, it is possible to run various functions to further analyse the
 trajectory. All the generated data is saved to text files, located in directories named according to
 the <span class="math notranslate nohighlight">\(\Delta V\)</span> and time of flight of the analysed trajectory. As mentioned in <a class="reference internal" href="inputs.html#mga-dsm-inputs"><span class="std std-ref">MGA-DSM Inputs</span></a>, the
 user can select whether the data should also be plotted.</p>
-<div class="section" id="calculation-of-delta-v-and-time-of-flight">
-<h3>Calculation of <span class="math notranslate nohighlight">\(\Delta V\)</span> and time of flight<a class="headerlink" href="#calculation-of-delta-v-and-time-of-flight" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="retrieving-delta-v-and-time-of-flight">
+<h3>Retrieving <span class="math notranslate nohighlight">\(\Delta V\)</span> and time of flight<a class="headerlink" href="#retrieving-delta-v-and-time-of-flight" title="Permalink to this headline">¶</a></h3>
 <p>The <span class="math notranslate nohighlight">\(\Delta V\)</span>, <span class="math notranslate nohighlight">\(\Delta V\)</span> per node (i.e. departure <span class="math notranslate nohighlight">\(\Delta V\)</span>, <span class="math notranslate nohighlight">\(\Delta V\)</span> per
 gravity-assist and insertion <span class="math notranslate nohighlight">\(\Delta V\)</span>), <span class="math notranslate nohighlight">\(\Delta V\)</span> per leg
 (i.e. per DSM) and time of flight are retrieved via:</p>

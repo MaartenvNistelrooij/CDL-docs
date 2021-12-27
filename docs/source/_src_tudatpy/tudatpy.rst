@@ -11,7 +11,7 @@ connected by legs, the trajectories between the planets. Tudat(Py) provides the 
 Space Maneuver (DSM), i.e. an impulsive :math:`\Delta V`, per leg.
 
 The MGA-DSM scripts developed for the CDL are divided in an input script and three executables, which should be adapted and
-executed in order and and are explained in the referenced pages below. In addition, there are source files, which
+executed in order and are explained in the referenced pages below. In addition, there are source files, which
 contain helpful functions that are used in the executables. Thus, the user does not need to modify these, but can do so
 to add functionality to the scripts. All these files can be downloaded from the :ref:`downloads` section.
 

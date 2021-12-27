@@ -100,7 +100,11 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../tudatpy.html#orbital-phase">Orbital phase</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="general.html">Orbiter general information</a></li>
 <li class="toctree-l3"><a class="reference internal" href="inputs.html">Orbiter inputs</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Orbiter analysis</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Orbiter analysis</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#orbit-propagation">Orbit propagation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#calculation-of-analysis-data">Calculation of analysis data</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="save_to_excel.html">Orbiter save to Excel</a></li>
 </ul>
 </li>
@@ -177,7 +181,188 @@
             
   <div class="section" id="orbiter-analysis">
 <span id="id1"></span><h1>Orbiter analysis<a class="headerlink" href="#orbiter-analysis" title="Permalink to this headline">¶</a></h1>
-<p>Work in progress, expected soon</p>
+<p>In the following sections the analysis of an orbiter’s trajectory is explained. The code is structures as follows:
+(1) selection of the propagation settings and execution of propagation, and (2) generation of data for analysis of
+trajectory.</p>
+<div class="section" id="orbit-propagation">
+<h2>Orbit propagation<a class="headerlink" href="#orbit-propagation" title="Permalink to this headline">¶</a></h2>
+<p>The orbit propagation set up and propagation itself are executed using functions designed specifically for the CDL,
+so as to simplify this process as much as possible. Nevertheless, these follow the same procedure described in
+<a class="reference external" href="https://tudat-space.readthedocs.io/en/latest/_src_user_guide/state_propagation.html">Tudat(Py) State propagation user guide</a>.</p>
+<p>First, the system of bodies to be used in the propagation is created through</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create system of bodies</span>
+<span class="n">bodies</span> <span class="o">=</span> <span class="n">Orbiter</span><span class="o">.</span><span class="n">create_system_of_bodies</span><span class="p">(</span>
+    <span class="n">central_body</span><span class="p">,</span>
+    <span class="n">vehicle_mass</span><span class="p">,</span>
+    <span class="n">spacecraft_name</span><span class="p">,</span>
+    <span class="n">radiation_pressure_coefficient</span><span class="p">,</span>      <span class="c1"># Optional: only needed when using solar radiation pressure as perturbation</span>
+    <span class="n">reference_area</span><span class="p">,</span>                      <span class="c1"># Optional: only needed when using solar radiation pressure as perturbation</span>
+    <span class="n">acceleration_settings_on_vehicle</span><span class="p">,</span>    <span class="c1"># Optional: as default no perturbations are used (two-body problem)</span>
+    <span class="n">rs_name</span><span class="p">,</span>                             <span class="c1"># Optional: only needed to assess line of sight to a relay satellite</span>
+    <span class="n">rs_central_body</span>                      <span class="c1"># Optional: only needed to assess line of sight to a relay satellite</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>This function creates the necessary bodies according to the perturbations specified in the input file
+(see <a class="reference internal" href="inputs.html#orbiter-inputs"><span class="std std-ref">Orbiter inputs</span></a>). To use the solar radiation pressure as perturbation, it is necessary to provide the
+radiation pressure coefficient and reference area as inputs to the function. To include a relay satellite and its
+central body in the system of bodies (for later checking the line of sight), it is necessary to provide the relay
+satellite name and name of its central body as inputs to the function.</p>
+<p>Next, the integrator and propagator settings are created through</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create integrator and propagator settings</span>
+<span class="n">integrator_settings</span><span class="p">,</span> <span class="n">propagator_settings</span> <span class="o">=</span> <span class="n">Orbiter</span><span class="o">.</span><span class="n">create_integrator_and_propagator_settings</span><span class="p">(</span>
+    <span class="n">bodies</span><span class="p">,</span>
+    <span class="n">central_body</span><span class="p">,</span>
+    <span class="n">simulation_start_epoch</span><span class="p">,</span>
+    <span class="n">simulation_end_epoch</span><span class="p">,</span>
+    <span class="n">initial_state_cartesian</span><span class="p">,</span>
+    <span class="n">spacecraft_name</span><span class="p">,</span>
+    <span class="n">acceleration_settings_on_vehicle</span><span class="p">,</span>    <span class="c1"># Optional: as default no perturbations are used (two-body problem)</span>
+    <span class="n">dependent_variables_to_save</span>          <span class="c1"># Optional: as default no dependent variables are returned</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>The previous function creates the integrator and propagator settings according to the specified inputs. A Cowell propagator is
+used, and RKDP8(7) as integrator with 10^-8 tolerance (both absolute and relative).</p>
+<p>Finally, one can propagate the spacecraft’s trajectory through</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create ephemeris for spacecraft</span>
+<span class="n">environment_setup</span><span class="o">.</span><span class="n">add_empty_tabulated_ephemeris</span><span class="p">(</span><span class="n">bodies</span><span class="p">,</span> <span class="n">spacecraft_name</span><span class="p">)</span>
+<span class="c1"># Propagate trajectory of spacecraft</span>
+<span class="n">dynamics_simulator</span> <span class="o">=</span> <span class="n">numerical_simulation</span><span class="o">.</span><span class="n">SingleArcSimulator</span><span class="p">(</span>
+    <span class="n">bodies</span><span class="p">,</span>
+    <span class="n">integrator_settings</span><span class="p">,</span>
+    <span class="n">propagator_settings</span><span class="p">,</span>
+    <span class="n">set_integrated_result</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">print_dependent_variable_data</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Spacecraft’s ephemeris are created with <code class="docutils literal notranslate"><span class="pre">add_empty_tabulated_ephemeris(...)</span></code> and then its value is defined
+after the propagation, by setting <code class="docutils literal notranslate"><span class="pre">set_integrated_result=True</span></code>. This is done because the functions to analyse the
+trajectory assume that the set of <code class="docutils literal notranslate"><span class="pre">bodies</span></code> includes a body corresponding to the spacecraft, for which ephemeris
+are defined.</p>
+</div>
+</div>
+<div class="section" id="calculation-of-analysis-data">
+<h2>Calculation of analysis data<a class="headerlink" href="#calculation-of-analysis-data" title="Permalink to this headline">¶</a></h2>
+<p>Having propagated the orbiter’s trajectory, it is possible to run various functions to further analyse it.
+All the generated data is saved to text files. As mentioned in <a class="reference internal" href="inputs.html#orbiter-inputs"><span class="std std-ref">Orbiter inputs</span></a>, the
+user can select whether the data is also plotted.</p>
+<div class="section" id="state-and-dependent-variables-history">
+<h3>State and dependent variables history<a class="headerlink" href="#state-and-dependent-variables-history" title="Permalink to this headline">¶</a></h3>
+<p>The state history and dependent variables history can be retrieved from</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Retrieve state history and dependent variables history as numpy arrays</span>
+<span class="n">state_history</span> <span class="o">=</span> <span class="n">result2array</span><span class="p">(</span><span class="n">dynamics_simulator</span><span class="o">.</span><span class="n">state_history</span><span class="p">)</span>
+<span class="n">dependent_variables_history</span> <span class="o">=</span> <span class="n">result2array</span><span class="p">(</span><span class="n">dynamics_simulator</span><span class="o">.</span><span class="n">dependent_variable_history</span><span class="p">)</span>
+
+<span class="c1"># Rename variables history for simplicity</span>
+<span class="n">time_history</span> <span class="o">=</span> <span class="n">state_history</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">state_values_history</span> <span class="o">=</span> <span class="n">state_history</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:]</span>
+<span class="n">dependent_variables_values_history</span> <span class="o">=</span> <span class="n">dependent_variables_history</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:]</span>
+</pre></div>
+</div>
+<p>For simplicity, in the provided scripts, the state and dependent variables history are converted to numpy arrays and sliced.</p>
+</div>
+<div class="section" id="line-of-sight-to-ground-station">
+<h3>Line of sight to ground station<a class="headerlink" href="#line-of-sight-to-ground-station" title="Permalink to this headline">¶</a></h3>
+<p>To check the line of sight, one first defines a ground station, through the <code class="docutils literal notranslate"><span class="pre">add_ground_station_simple(...)</span></code> function.
+The ground station is defined by the body it is located on, by its latitude and by its longitude; the body is
+assumed to be spherical.
+By default, the body where the ground station is located is considered to be the Earth, but other options
+may be selected.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add ground station</span>
+<span class="n">TrajectoryAnalysis</span><span class="o">.</span><span class="n">add_ground_station_simple</span><span class="p">(</span>
+        <span class="n">bodies</span><span class="p">,</span>
+        <span class="n">station_name</span><span class="p">,</span>
+        <span class="n">gs_latitude</span><span class="p">,</span>
+        <span class="n">gs_longitude</span><span class="p">,</span>
+        <span class="n">ground_station_body</span> <span class="o">=</span> <span class="s1">&#39;Earth&#39;</span>         <span class="c1"># Optional: default value is &#39;Earth&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Next, it is possible to retrieve the line of sight history with respect to the ground station, through the
+<code class="docutils literal notranslate"><span class="pre">line_of_sight_to_ground_station(...)</span></code> function:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Retrieve line of sight</span>
+<span class="n">los_to_gs_history</span> <span class="o">=</span> <span class="n">Orbiter</span><span class="o">.</span><span class="n">line_of_sight_to_ground_station</span><span class="p">(</span>
+    <span class="n">bodies</span><span class="p">,</span>
+    <span class="n">time_history</span><span class="p">,</span>
+    <span class="n">spacecraft_name</span><span class="p">,</span>
+    <span class="n">central_body</span><span class="p">,</span>
+    <span class="n">gs_name</span><span class="p">,</span>
+    <span class="n">minimum_elevation</span><span class="p">,</span>
+    <span class="n">ground_station_body</span> <span class="o">=</span> <span class="s1">&#39;Earth&#39;</span>         <span class="c1"># Optional: default value is &#39;Earth&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>To evaluate whether there is line of sight, this function assesses
+whether the elevation as seen from the ground station is larger than its minimum allowed value, and whether there are
+occultations produced by the body where the ground station is located or by the body being orbited by the spacecraft.
+The function returns <code class="docutils literal notranslate"><span class="pre">1</span></code> when there is line of sight, and <code class="docutils literal notranslate"><span class="pre">0</span></code> when there is no line of sight.</p>
+<p>The values of the line of sight are retrieved at the time stamps selected through the <code class="docutils literal notranslate"><span class="pre">time_history</span></code>
+argument.</p>
+</div>
+<div class="section" id="line-of-sight-to-relay-satellite">
+<h3>Line of sight to relay satellite<a class="headerlink" href="#line-of-sight-to-relay-satellite" title="Permalink to this headline">¶</a></h3>
+<p>To check the line of sight to a relay satellite it is first necessary to propagate its orbit, which follows the
+same logic as the propagation of the orbiter (presented above). The following steps are required:</p>
+<ul class="simple">
+<li><p>Creation of integrator and propagator settings, with <code class="docutils literal notranslate"><span class="pre">create_integrator_and_propagator_settings(...)</span></code></p></li>
+<li><p>Creation of empty ephemeris for relay satellite, with <code class="docutils literal notranslate"><span class="pre">add_empty_tabulated_ephemeris(...)</span></code></p></li>
+<li><p>Propagation of relay satellite’s orbit, with <code class="docutils literal notranslate"><span class="pre">SingleArcSimulator(...)</span></code></p></li>
+</ul>
+<p>Next, it is possible to retrieve the line of sight history with respect to the relay satellite through</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Retrieve line of sight</span>
+<span class="n">los_to_rs_history</span> <span class="o">=</span> <span class="n">Orbiter</span><span class="o">.</span><span class="n">line_of_sight_to_relay_satellite</span><span class="p">(</span>
+    <span class="n">bodies</span><span class="p">,</span>
+    <span class="n">time_history</span><span class="p">,</span>
+    <span class="n">central_body</span><span class="p">,</span>
+    <span class="n">spacecraft_name</span><span class="p">,</span>
+    <span class="n">rs_central_body</span><span class="p">,</span>
+    <span class="n">rs_name</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>To evaluate whether there is line of sight, this function assesses
+whether there are occultations produced by the body orbited by the spacecraft or by the body orbited by the relay satellite.
+The function returns <code class="docutils literal notranslate"><span class="pre">1</span></code> when there is line of sight, and <code class="docutils literal notranslate"><span class="pre">0</span></code> when there is no line of sight.</p>
+<p>The values of the line of sight are retrieved at the time stamps selected through the <code class="docutils literal notranslate"><span class="pre">time_history</span></code>
+argument.</p>
+</div>
+<div class="section" id="day-or-night-side-of-central-body">
+<h3>Day or night side of central body<a class="headerlink" href="#day-or-night-side-of-central-body" title="Permalink to this headline">¶</a></h3>
+<p>It is possible to check whether the sub-satellite point is in the day or night side of the central planet
+(useful for the calculation of the albedo) through</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Day or night side</span>
+<span class="n">day_night_values_history</span> <span class="o">=</span> <span class="n">Orbiter</span><span class="o">.</span><span class="n">planet_day_night_side</span><span class="p">(</span>
+    <span class="n">bodies</span><span class="p">,</span>
+    <span class="n">time_history</span><span class="p">,</span>
+    <span class="n">spacecraft_name</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>It is assumed that there is day in half the planet, and night in the other half. The function returns <code class="docutils literal notranslate"><span class="pre">1</span></code> when the
+spacecraft is in the day side and <code class="docutils literal notranslate"><span class="pre">0</span></code> when the spacecraft is in the night side. These values are retrieved
+at the time stamps selected through the <code class="docutils literal notranslate"><span class="pre">time_history</span></code> argument.</p>
+</div>
+<div class="section" id="eclipsing-with-respect-to-the-sun">
+<h3>Eclipsing with respect to the Sun<a class="headerlink" href="#eclipsing-with-respect-to-the-sun" title="Permalink to this headline">¶</a></h3>
+<p>The occurrence of eclipses with respect to the Sun can be checked using</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Eclipses</span>
+<span class="n">eclipses_history</span> <span class="o">=</span> <span class="n">Orbiter</span><span class="o">.</span><span class="n">eclipses_wrt_sun</span><span class="p">(</span>
+    <span class="n">bodies</span><span class="p">,</span>
+    <span class="n">time_history</span><span class="p">,</span>
+    <span class="n">spacecraft_name</span><span class="p">,</span>
+    <span class="n">central_body</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The function returns <code class="docutils literal notranslate"><span class="pre">1</span></code> when the spacecraft is in full light, <code class="docutils literal notranslate"><span class="pre">0</span></code> when in umbra and a value between <code class="docutils literal notranslate"><span class="pre">0</span></code> and
+<code class="docutils literal notranslate"><span class="pre">1</span></code> when in penumbra. These values are retrieved at the time stamps selected through the <code class="docutils literal notranslate"><span class="pre">time_history</span></code>
+argument.</p>
+</div>
+<div class="section" id="analysis-of-ground-coverage">
+<h3>Analysis of ground coverage<a class="headerlink" href="#analysis-of-ground-coverage" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
 </div>
 
 

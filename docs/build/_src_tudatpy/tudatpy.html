@@ -190,7 +190,7 @@ interplanetary travel. These transfers are defined by a series a nodes (planets)
 connected by legs, the trajectories between the planets. Tudat(Py) provides the possibility to apply a maximum of 1 Deep
 Space Maneuver (DSM), i.e. an impulsive <span class="math notranslate nohighlight">\(\Delta V\)</span>, per leg.</p>
 <p>The MGA-DSM scripts developed for the CDL are divided in an input script and three executables, which should be adapted and
-executed in order and and are explained in the referenced pages below. In addition, there are source files, which
+executed in order and are explained in the referenced pages below. In addition, there are source files, which
 contain helpful functions that are used in the executables. Thus, the user does not need to modify these, but can do so
 to add functionality to the scripts. All these files can be downloaded from the <a class="reference internal" href="../_src_downloads/downloads.html#downloads"><span class="std std-ref">Downloads for the Collaborative Design Lab</span></a> section.</p>
 <p>Important background information about the analysis and design of MGA-DSM transfer trajectories within Tudat(Py) is
@@ -225,8 +225,8 @@ the following sections:</p>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="_mga_dsm/analysis.html">MGA-DSM Analysis</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="_mga_dsm/analysis.html#selection-of-trajectory-settings-and-creations-of-transfer-trajectory">Selection of trajectory settings and creations of transfer trajectory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="_mga_dsm/analysis.html#calculating-transfer-trajectory-data">Calculating transfer trajectory data</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="_mga_dsm/analysis.html#calculation-of-delta-v-and-time-of-flight">Calculation of <span class="math notranslate nohighlight">\(\Delta V\)</span> and time of flight</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_mga_dsm/analysis.html#calculation-of-analysis-data">Calculation of analysis data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="_mga_dsm/analysis.html#retrieving-delta-v-and-time-of-flight">Retrieving <span class="math notranslate nohighlight">\(\Delta V\)</span> and time of flight</a></li>
 <li class="toctree-l3"><a class="reference internal" href="_mga_dsm/analysis.html#state-history">State history</a></li>
 <li class="toctree-l3"><a class="reference internal" href="_mga_dsm/analysis.html#solar-flux">Solar flux</a></li>
 <li class="toctree-l3"><a class="reference internal" href="_mga_dsm/analysis.html#link-budget">Link budget</a></li>
@@ -249,7 +249,19 @@ the following sections:</p>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="_orbiter/inputs.html">Orbiter inputs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="_orbiter/analysis.html">Orbiter analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_orbiter/analysis.html">Orbiter analysis</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="_orbiter/analysis.html#orbit-propagation">Orbit propagation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_orbiter/analysis.html#calculation-of-analysis-data">Calculation of analysis data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="_orbiter/analysis.html#state-and-dependent-variables-history">State and dependent variables history</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_orbiter/analysis.html#line-of-sight-to-ground-station">Line of sight to ground station</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_orbiter/analysis.html#line-of-sight-to-relay-satellite">Line of sight to relay satellite</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_orbiter/analysis.html#day-or-night-side-of-central-body">Day or night side of central body</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_orbiter/analysis.html#eclipsing-with-respect-to-the-sun">Eclipsing with respect to the Sun</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_orbiter/analysis.html#analysis-of-ground-coverage">Analysis of ground coverage</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="_orbiter/save_to_excel.html">Orbiter save to Excel</a></li>
 </ul>
 </div>

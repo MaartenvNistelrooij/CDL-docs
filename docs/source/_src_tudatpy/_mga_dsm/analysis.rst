@@ -49,7 +49,7 @@ All the inputs to the ``create_and_evaluate_transfer_trajectory(...)`` function 
 by the script based on the selection of the transfer trajectories to analyse, or manually specified
 by the user in the input file (see :ref:`mga_dsm_inputs`).
 
-Calculating transfer trajectory data
+Calculation of analysis data
 --------------------------------------------------------
 
 Having selected the trajectory parameters, it is possible to run various functions to further analyse the
@@ -57,7 +57,7 @@ trajectory. All the generated data is saved to text files, located in directorie
 the :math:`\Delta V` and time of flight of the analysed trajectory. As mentioned in :ref:`mga_dsm_inputs`, the
 user can select whether the data should also be plotted.
 
-Calculation of :math:`\Delta V` and time of flight
+Retrieving :math:`\Delta V` and time of flight
 ****************************************************************
 
 The :math:`\Delta V`, :math:`\Delta V` per node (i.e. departure :math:`\Delta V`, :math:`\Delta V` per

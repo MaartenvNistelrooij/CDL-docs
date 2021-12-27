@@ -2,13 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ec58a93e-4097-4ffb-88b1-aa0858e270f7" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/CDL-docs.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/CDL-docs.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/build/.doctrees/_src_tudatpy/_mga_dsm/analysis.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/.doctrees/_src_tudatpy/_mga_dsm/analysis.doctree" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/build/.doctrees/_src_tudatpy/_orbiter/analysis.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/.doctrees/_src_tudatpy/_orbiter/analysis.doctree" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/build/.doctrees/_src_tudatpy/tudatpy.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/.doctrees/_src_tudatpy/tudatpy.doctree" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/build/.doctrees/environment.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/.doctrees/environment.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/build/_sources/_src_tudatpy/_mga_dsm/analysis.rst.txt" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/_sources/_src_tudatpy/_mga_dsm/analysis.rst.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/build/_sources/_src_tudatpy/_orbiter/analysis.rst.txt" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/_sources/_src_tudatpy/_orbiter/analysis.rst.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/build/_sources/_src_tudatpy/tudatpy.rst.txt" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/_sources/_src_tudatpy/tudatpy.rst.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/build/_src_tudatpy/_mga_dsm/analysis.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/_src_tudatpy/_mga_dsm/analysis.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/build/_src_tudatpy/_orbiter/analysis.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/_src_tudatpy/_orbiter/analysis.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/build/_src_tudatpy/tudatpy.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/_src_tudatpy/tudatpy.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/build/objects.inv" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/objects.inv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/build/searchindex.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/searchindex.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/source/_src_tudatpy/_mga_dsm/analysis.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_src_tudatpy/_mga_dsm/analysis.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/_src_tudatpy/_mga_dsm/inputs.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_src_tudatpy/_mga_dsm/inputs.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_src_tudatpy/_orbiter/analysis.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_src_tudatpy/_orbiter/analysis.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_src_tudatpy/tudatpy.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_src_tudatpy/tudatpy.rst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
