@@ -303,4 +303,4 @@ Each subdirectory contains a file containing the inputs that were used. The file
 encouraged to design and implement their own ways of structuring these files. For example, if one is analysing the effect
 of different initial states, it could be insightful to put the values of the Kepler elements in the subdirectory names.
 
-.. figure:: _static/file_structure_orbiter_analysis.png
+.. figure:: _static/file_structure_orbiter_analysis.PNG

@@ -2,33 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ec58a93e-4097-4ffb-88b1-aa0858e270f7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/docs/source/_src_cdp4/_subsystems/adcs_system.rst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/source/_src_cdp4/_subsystems/cdh_system.rst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/source/_src_cdp4/_subsystems/eps_system.rst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/source/_src_cdp4/_subsystems/propulsion_system.rst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/source/_src_cdp4/_subsystems/radiation_system.rst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/source/_src_cdp4/_subsystems/structure.rst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/source/_src_cdp4/_subsystems/thermal_system.rst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/source/_src_cdp4/_subsystems/ttc_system.rst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/source/_src_cdp4/general.rst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/_src_cdp4/manual.rst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/_src_downloads/_static/CDL_TudatPy.zip" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_src_downloads/_static/CDL_TudatPy.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/_src_downloads/downloads.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_src_downloads/downloads.rst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/source/_src_tudatpy/_mga_dsm/analysis.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_src_tudatpy/_mga_dsm/analysis.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/_src_tudatpy/_mga_dsm/general.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_src_tudatpy/_mga_dsm/general.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/_src_tudatpy/_mga_dsm/inputs.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_src_tudatpy/_mga_dsm/inputs.rst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/source/_src_tudatpy/_mga_dsm/optimization.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_src_tudatpy/_mga_dsm/optimization.rst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/source/_src_tudatpy/_mga_dsm/save_to_excel.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_src_tudatpy/_mga_dsm/save_to_excel.rst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/source/_src_tudatpy/_orbiter/analysis.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_src_tudatpy/_orbiter/analysis.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/_src_tudatpy/_orbiter/general.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_src_tudatpy/_orbiter/general.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/_src_tudatpy/_orbiter/inputs.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_src_tudatpy/_orbiter/inputs.rst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/source/_src_tudatpy/_orbiter/save_to_excel.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_src_tudatpy/_orbiter/save_to_excel.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/_src_tudatpy/tudatpy.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_src_tudatpy/tudatpy.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/_static/cover.png" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/cover.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/_static/environment_cdl.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/conf.py" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/conf.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/index.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/index.rst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,6 +80,7 @@
       <workItem from="1640885949166" duration="11000" />
       <workItem from="1640886404795" duration="11000" />
       <workItem from="1640886661544" duration="1635000" />
+      <workItem from="1640893133395" duration="50000" />
     </task>
     <servers />
   </component>

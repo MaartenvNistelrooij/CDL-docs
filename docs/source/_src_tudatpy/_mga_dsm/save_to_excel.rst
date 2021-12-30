@@ -10,4 +10,4 @@ the  user to define the case of which the results are to be saved, similar to se
 analysed further after the optimization. The script requests the transfer body order, then searches what cases are
 present and then requests which of these is to be saved. The procedure is depicted below.
 
-.. figure:: _static/console_mga_saving.png
+.. figure:: _static/console_mga_saving.PNG

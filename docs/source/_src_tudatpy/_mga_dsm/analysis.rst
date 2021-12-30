@@ -20,7 +20,7 @@ or time of flight of the solutions of interest. Based on these inputs, the scrip
 parameters that define each of the trajectories to be further analysed. As depicted in the example below, it is possible
 to automatically analyse multiple solutions by separating values by commas.
 
-.. figure:: _static/console_mga_analysis.png
+.. figure:: _static/console_mga_analysis.PNG
 
 
 Next the transfer trajectory needs to be created. This is done following exactly the same logic as described in
@@ -211,4 +211,4 @@ argument.
 
 The results are saved to subdirectories per :math:`\Delta V` and time of flight combination as depicted below.
 
-.. figure:: _static/file_structure_mga_analysis.png
+.. figure:: _static/file_structure_mga_analysis.PNG

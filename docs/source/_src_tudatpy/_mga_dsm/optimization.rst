@@ -105,4 +105,4 @@ but will be extended with subdirectories with further analysis results later on.
 the Pareto front data and a ``generations`` subdirectory containing the data of ever 100th generation. The file structure
 is depicted below.
 
-.. figure:: _static/file_structure_optimization.png
+.. figure:: _static/file_structure_optimization.PNG
