@@ -1,6 +1,6 @@
 
-Welcome to Concurrent Design Lab documentation!
-=================================================
+Welcome to Collaborative Design Lab documentation!
+=======================================================
 
 Welcome to the Collaborative Design Lab (CDL) of the Aerospace Engineering (AE) Faculty of Delft University of Technology
 (TU Delft). The CDL has been specifically set up and designed to ease collaborative work on multidisciplinary projects.
@@ -14,16 +14,14 @@ and TudatPy.
 CDP4
 -------
 
-Work in progress, expected soon
-
-.. TO DO: Short introduction to the Concurrent Design Platform 4
-.. TO DO: include CDP4 manual transcript -> take from CDP4 manual
+The Concurrent Design Platform 4 (CDP4) is a tool that is used widely in industry to work concurrently on multidisciplinary
+projects, such as space missions. It allows the easy integration of various subsystems of a spacecraft. A CDP4 Excel template
+was developed that can be used for a wide variety of space missions. This chapter explains how to use this template:
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 1
 
-   _src_cdp4/manual
-
+   _src_cdp4/general
 
 Tudat(Py)
 -----------
@@ -45,7 +43,7 @@ started on them, have a look at the Tudat(Py) `documentation`_  and `installatio
     the Tudat(Py) installation.
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 1
 
    _src_tudatpy/tudatpy
 
@@ -57,6 +55,6 @@ Both for CDP4 and Tudat(Py), templates and example scripts have been developed t
 and script can  be found on the download page:
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 1
 
    _src_downloads/downloads

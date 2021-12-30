@@ -57,7 +57,7 @@ imported from Tudat.
 
 .. End of code block
 
-The ``departure_date`` is to be specified in J2000 (Julian days since 1 January 2000, 12:00 UTC). ``departure_date_margin``
+The ``departure_date`` is to be specified in J2000 (Julian seconds since 1 January 2000, 12:00 UTC). ``departure_date_margin``
 indicates the time added and subtracted from the nominal departure date to define the departure date boundaries for the
 optimization. In the above example this means that the departure will occur within half a year before and half a
 year after the nominal date.
@@ -71,10 +71,19 @@ year after the nominal date.
 
 .. End of code block
 
-Specifying the semi-major axis and eccentricity of the departure and insertion orbits is optional in Tudat(Py). These
-values correspond to departure from / arrival at the sphere of influence (SOI) of the departure / arrival  planet. This
-approach was also implemented in the CDL scripts. That is, these variables are defined in the input files, but they are
-only used as keyword arguments in the optimization and analysis.
+Specifying the semi-major axis and eccentricity of the departure and insertion orbits is optional in Tudat(Py). In the
+CDL code, default values are set to :math:`a=\infty` and :math:`e=0` through keyword arguments in the applicable
+optimization and analysis functions. These values correspond to departure from / arrival at the edge of the sphere of
+influence (SOI) of the departure / arrival  planet. In the above example, departure is defined from Earth's SOI and
+arrival is in a highly eccentric orbit at Saturn.
+
+.. code-block:: python
+
+    spacecraft_name = "42"
+
+Besides that it can be fun to personalise your analyses, a unique identifier is needed to define the spacecraft ephemeris
+that are generated and used in the analysis of solar flux, link budget and available communications time. This is done
+through ``spacecraft_name``.
 
 Optimization settings
 ----------------------------------------

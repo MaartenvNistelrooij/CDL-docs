@@ -12,36 +12,24 @@ spacecraft design. This approach comes to light in the form of four files that c
 to find good transfer trajectories, in terms of :math:`\Delta V` and time of flight (optimization) and communication time,
 link budget and solar flux (analysis).
 
+.. Implemented bodies
+.. ----------------------------------------
 
-Implemented bodies
-----------------------------------------
+.. Even though Tudat(Py) has many planets and moons implemented with default environment models, the CDL scripts were written
+.. to facilitate working with the bodies specified below. These bodies have characteristics included in ``src/SolarSystemConstants.py``
+.. and ``transfer_trajectory/transfer_trajectory_inputs.py`` for analysis purposes. Users are encouraged to add additional
+.. bodies and their characteristics.
 
-Even though Tudat(Py) has many planets and moons implemented with default environment models, the CDL scripts were written
-to facilitate working with the bodies specified below. These bodies have characteristics included in ``src/SolarSystemConstants.py``
-and ``transfer_trajectory/transfer_trajectory_inputs.py`` for analysis purposes. Users are encouraged to add additional bodies and their
-characteristics.
-
-Implemented bodies:
-
-* Sun
-
-* Mercury
-
-* Venus
-
-* Earth
-
-* Moon
-
-* Mars
-
-* Jupiter
-
-* Saturn
-
-* Uranus
-
-* Neptune
-
-* Pluto
+.. Implemented bodies:
+.. * Sun
+.. * Mercury
+.. * Venus
+.. * Earth
+.. * Moon
+.. * Mars
+.. * Jupiter
+.. * Saturn
+.. * Uranus
+.. * Neptune
+.. * Pluto
 

@@ -2,22 +2,33 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ec58a93e-4097-4ffb-88b1-aa0858e270f7" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/docs/source/_src_cdp4/_subsystems/adcs_system.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/_src_cdp4/_subsystems/cdh_system.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/_src_cdp4/_subsystems/eps_system.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/_src_cdp4/_subsystems/propulsion_system.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/_src_cdp4/_subsystems/radiation_system.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/_src_cdp4/_subsystems/structure.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/_src_cdp4/_subsystems/thermal_system.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/_src_cdp4/_subsystems/ttc_system.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/_src_cdp4/general.rst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/.doctrees/_src_tudatpy/_mga_dsm/analysis.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/.doctrees/_src_tudatpy/_mga_dsm/analysis.doctree" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/.doctrees/_src_tudatpy/_orbiter/analysis.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/.doctrees/_src_tudatpy/_orbiter/analysis.doctree" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/.doctrees/_src_tudatpy/tudatpy.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/.doctrees/_src_tudatpy/tudatpy.doctree" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/.doctrees/environment.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/.doctrees/environment.pickle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/_sources/_src_tudatpy/_mga_dsm/analysis.rst.txt" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/_sources/_src_tudatpy/_mga_dsm/analysis.rst.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/_sources/_src_tudatpy/_orbiter/analysis.rst.txt" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/_sources/_src_tudatpy/_orbiter/analysis.rst.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/_sources/_src_tudatpy/tudatpy.rst.txt" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/_sources/_src_tudatpy/tudatpy.rst.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/_src_tudatpy/_mga_dsm/analysis.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/_src_tudatpy/_mga_dsm/analysis.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/_src_tudatpy/_orbiter/analysis.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/_src_tudatpy/_orbiter/analysis.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/_src_tudatpy/tudatpy.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/_src_tudatpy/tudatpy.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/objects.inv" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/objects.inv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/build/searchindex.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/build/searchindex.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_src_cdp4/manual.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_src_downloads/_static/CDL_TudatPy.zip" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_src_downloads/_static/CDL_TudatPy.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_src_downloads/downloads.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_src_downloads/downloads.rst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/source/_src_tudatpy/_mga_dsm/analysis.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_src_tudatpy/_mga_dsm/analysis.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_src_tudatpy/_mga_dsm/general.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_src_tudatpy/_mga_dsm/general.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_src_tudatpy/_mga_dsm/inputs.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_src_tudatpy/_mga_dsm/inputs.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_src_tudatpy/_mga_dsm/optimization.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_src_tudatpy/_mga_dsm/optimization.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_src_tudatpy/_mga_dsm/save_to_excel.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_src_tudatpy/_mga_dsm/save_to_excel.rst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/source/_src_tudatpy/_orbiter/analysis.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_src_tudatpy/_orbiter/analysis.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_src_tudatpy/_orbiter/general.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_src_tudatpy/_orbiter/general.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_src_tudatpy/_orbiter/inputs.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_src_tudatpy/_orbiter/inputs.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_src_tudatpy/_orbiter/save_to_excel.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_src_tudatpy/_orbiter/save_to_excel.rst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/source/_src_tudatpy/tudatpy.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_src_tudatpy/tudatpy.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/cover.png" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_static/cover.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/_static/environment_cdl.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/conf.py" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/conf.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/index.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/index.rst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +37,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectId" id="22orDNUUNZJZjoVqcfxB6m3K84n" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -36,7 +55,14 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Maarten\Documents\AATudatDevelopment\CDL-docs\docs\source\_src_cdp4\subsystems" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="CDL-docs" type="docs" factoryName="Sphinx task">
@@ -48,6 +74,7 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="docutils_input_file" value="$PROJECT_DIR$/docs/source" />
       <option name="docutils_output_file" value="$PROJECT_DIR$/docs/build" />
       <option name="docutils_params" value="" />
@@ -64,7 +91,32 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1640514660659</updated>
+      <workItem from="1640694725676" duration="1799000" />
+      <workItem from="1640711729487" duration="8461000" />
+      <workItem from="1640770720016" duration="7781000" />
+      <workItem from="1640790707451" duration="602000" />
+      <workItem from="1640799181872" duration="13000" />
+      <workItem from="1640801769384" duration="3506000" />
+      <workItem from="1640864234039" duration="10945000" />
+      <workItem from="1640885949166" duration="11000" />
+      <workItem from="1640886404795" duration="11000" />
+      <workItem from="1640886661544" duration="1635000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

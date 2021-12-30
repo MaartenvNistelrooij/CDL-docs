@@ -3,9 +3,10 @@
 MGA-DSM Analysis
 ========================================
 
-In the following section the analysis of MGA-DSM trajectories is explained. The code is structures as follows:
-(1) selection of the individuals from the generated Pareto front (see :ref:`mga_dsm_optimization`) to be further analysed;
-(2) creation of transfer trajectory object; (3) analysis of transfer trajectory.
+In the following section the analysis of MGA-DSM trajectories is explained. The code
+(``transfer_trajectory/transfer_trajectory_analysis.py``) is structured as follows: (1) selection of the individuals from
+the generated Pareto front (see :ref:`mga_dsm_optimization`) to be further analysed; (2) creation of transfer trajectory
+object; (3) analysis of transfer trajectory.
 
 Selection of trajectory settings and creations of transfer trajectory
 ---------------------------------------------------------------------------
@@ -16,7 +17,11 @@ These functions first prompt the user to select which of the of the optimized tr
 analysed. Second, for the selected transfer body order, the user is asked to select
 the transfer trajectory or trajectories to analyse; this can be done by selecting either the :math:`\Delta V`
 or time of flight of the solutions of interest. Based on these inputs, the script retrieves the set of trajectory
-parameters that define each of the trajectories to be further analysed.
+parameters that define each of the trajectories to be further analysed. As depicted in the example below, it is possible
+to automatically analyse multiple solutions by separating values by commas.
+
+.. figure:: _static/console_mga_analysis.png
+
 
 Next the transfer trajectory needs to be created. This is done following exactly the same logic as described in
 `Tudat(Py) MGA-DSM Analysis example <https://tudat-space.readthedocs.io/en/latest/_src_getting_started/_src_examples/mga_dsm_examples/mga_dsm_analysis.html>`_.
@@ -27,6 +32,8 @@ First, the system of bodies to be used in the transfer trajectory is created:
     # Create system of bodies
     bodies = environment_setup.create_simplified_system_of_bodies()
 .. End of code block
+
+The simplified system of bodies allows for the use of the Sun, the eight Solar System planets and Pluto.
 
 Second, the transfer trajectory is created and evaluated. Here, that step is done by simply calling the following
 function:
@@ -201,3 +208,7 @@ not verified).
 
 The values of the communications time are retrieved at the time stamps selected through the ``time_history``
 argument.
+
+The results are saved to subdirectories per :math:`\Delta V` and time of flight combination as depicted below.
+
+.. figure:: _static/file_structure_mga_analysis.png

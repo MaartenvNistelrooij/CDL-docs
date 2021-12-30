@@ -1,24 +1,15 @@
-name: tudat-bundle-1
+name: tudat-space-cdl
 channels:
   - conda-forge
   - tudat-team
 dependencies:
-  - eigen
-  - boost-cpp=1.72
-  - tudat-resources
-  - sofa-cmake
-  - cspice-cmake
-  - python=3.8
-  - pybind11
-  - pybind11-abi
+  - tudatpy
+  - matplotlib
+  - scipy
+  - pandas
   - numpy
-  - matplotlib # for tudat.plotting
-  - basemap # for tudat.plotting
   - pytest
   - pygmo
-  - pandas
-  - jdcal
   - xlsxwriter
   - openpyxl
-  - ast
   - regex
