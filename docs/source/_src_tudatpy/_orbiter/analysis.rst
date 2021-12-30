@@ -3,9 +3,9 @@
 Orbiter analysis
 ====================
 
-In the following sections the analysis of an orbiter's trajectory is explained. The code is structures as follows:
-(1) selection of the propagation settings and execution of propagation, and (2) generation of data for analysis of
-trajectory.
+In the following sections the analysis of an orbiter's trajectory is explained. The code (``orbiter/orbiter_analysis.py``)
+is structures as follows: (1) selection of the propagation settings and execution of propagation, and (2) generation of
+data for analysis of trajectory.
 
 Orbit propagation
 ---------------------------------------------------------------------------
@@ -77,7 +77,7 @@ Finally, one can propagate the spacecraft's trajectory through
     Spacecraft's ephemeris are created with ``add_empty_tabulated_ephemeris(...)`` and then its value is defined
     after the propagation, by setting ``set_integrated_result=True``. This is done because the functions to analyse the
     trajectory assume that the set of ``bodies`` includes a body corresponding to the spacecraft, for which ephemeris
-    are defined.
+    are defined. For this purpose it is required to set the ``spacecraft_name`` as a unique identifier.
 
 Calculation of analysis data
 ---------------------------------------------------------------------------
@@ -196,6 +196,7 @@ It is possible to check whether the sub-satellite point is in the day or night s
         bodies,
         time_history,
         spacecraft_name)
+
 .. End of code block
 
 It is assumed that there is day in half the planet, and night in the other half. The function returns ``1`` when the
@@ -223,3 +224,83 @@ argument.
 
 Analysis of ground coverage
 ****************************************************************
+
+Ground coverage characteristics are useful to judge the potential science return of a mission. The general approach
+taken here is to divide the central body's surface into a grid of pixels, defined by there longitude and latitude. Then,
+the geographical track of the propagated spacecraft is used to identify observed pixels on a regular longitude-latitude
+grid. In addition, it will identify the revisit time if a pixel is observed multiple times throughout the propagation.
+The swath width is considered for each observed pixel by combining the field of view angle and the spacecraft's instantaneous altitude.
+
+First, the altitude and geographical location of the spacecraft are taken from the dependent variables:
+
+.. code-block:: python
+
+    altitude = dependent_variables_values_history[:, 0]
+    latitude = dependent_variables_values_history[:, 2] * 180 / np.pi
+    longitude = dependent_variables_values_history[:, 3] * 180 / np.pi
+
+.. End of code-block
+
+The altitude and field of view are used to compute the swath width, which in turns is converted to a longitude range
+of observed pixels, which we called ``swath_angle``. In the same function these arrays are split in subsections at the
+minimum and maximum observed latitudes as well as at the 180th Meridian:
+
+.. code-block:: python
+
+    longitude_split, latitude_split, time_history_split, swath_angle_split = \
+            Orbiter.split_arrays_at_min_max_latitude_and_180_meridian(central_body, altitude, longitude,
+                                                                                 latitude, time_history, field_of_view)
+
+.. End of code-block
+
+Each section of ``longitude_split``, ``time_history_split`` and ``swath_angle_split`` is subsequently interpolated to a
+regular latitude grid, such that each observation is separated by 0.5 degrees latitude. Here, the minimum and maximum
+latitudes are used to define the end points for the regular latitude grid:
+
+.. code-block:: python
+
+    lat_min = latitude.min()
+    lat_max = latitude.max()
+    latitude_interpolated_split, longitude_interpolated_split, time_history_interpolated_split, swath_angle_interpolated_split = \
+            Orbiter.interpolate_lonlat_sections(latitude_split, longitude_split, time_history_split, swath_angle_split,
+                                                lat_min, lat_max)
+
+.. End of code-block
+
+Finally, the interpolated data is used to compute which  pixels are observed and what the revisit times are. This is done
+by looping over each entry in the interpolated data, such that each sub-satellite point is considered, one by one.
+The swath angle corresponding to a specific sub-satellite point is used to identify the range of longitudes that is
+observed along with each sub-satellite point. These pixels are then updated in terms of number of visits and the revisit time.
+Having walked through all sub-satellite points, the mean revisit time is computed per pixel from the total time between
+visits and the total number of visits. Finally, the number of pixels that are observed at least once is used to compute
+the percentage of the surface that is observed:
+
+.. code-block:: python
+
+   lon_grid, lat_grid, ground_track_grid, number_of_visitations_grid, shortest_revisit_time_grid, \
+        mean_revisit_time_grid, longest_revisit_time_grid, percentage_surface_covered = \
+        Orbiter.ground_coverage_parameters(latitude_interpolated_split, longitude_interpolated_split,
+                                           time_history_interpolated_split, swath_angle_interpolated_split,
+                                           simulation_time, semi_major_axis, central_body_gravitational_parameter)
+
+.. End of code-block
+
+The minimum and maximum observed latitudes, as well as the percentage of the surface that is observed, are written to
+the console. In addition, these, along with the other computed ground coverage characteristics, are saved in text files.
+By default, if plots are saved, plots are made of the ground track (pixels that are visited at least once) and the mean
+revisit time. Note, if a pixel is not observed throughout the complete propagation, its revisit time will equal the
+``simulation_time``. Of course, the user free to add their own plots.
+
+By default, each pixel in the grid has a resolution of 0.5x0.5 degrees. This can be improved without too much computational
+expense, except for plotting, which may become much slower.
+
+Saved files
+---------------------
+
+The results of this analysis are saved to a subdirectory within the directory where the executable scripts are located.
+The name of this subdirectory is ``Orbiter_i``, where ``i`` is a counter and increases by 1 for every orbiter that is analysed.
+Each subdirectory contains a file containing the inputs that were used. The file structure is shown below. Users are
+encouraged to design and implement their own ways of structuring these files. For example, if one is analysing the effect
+of different initial states, it could be insightful to put the values of the Kepler elements in the subdirectory names.
+
+.. figure:: _static/file_structure_orbiter_analysis.png

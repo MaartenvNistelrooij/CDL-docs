@@ -3,11 +3,13 @@
 Downloads for the Collaborative Design Lab
 ===============================================================================
 
+CDP4 Excel Template
+---------------------
 
-CDP4 Templates
-----------------
+Below, the CDP4 Mission Template can be downloaded. It contains multiple sheets, as explained in :ref:`cdp4`.
 
-Work in progress, expected soon
+:download:`CDP4 Template <_static/CDL_CDP4.zip>`
+
 
 TudatPy scripts
 --------------------------

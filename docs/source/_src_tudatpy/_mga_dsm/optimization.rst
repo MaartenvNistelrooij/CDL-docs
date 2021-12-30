@@ -66,7 +66,8 @@ few things that can be done to 'manipulate' or 'tweak' the optimization:
 
 * *Pick a different*  ``optimization_seed``
     The seed is used for two purposes: to create the initial population and to initialize the optimization algorithm. By
-    specifying a different seed, the starting point for the optimization is different and the final results may be better.
+    specifying a different seed, the starting point for the optimization is different and the final results may be better
+    (or worse).
 
 * *Set* ``maximum_delta_v``
     It is possible to try and force the optimization towards solutions with lower :math:`\Delta V`. This can be done by specifying
@@ -93,3 +94,15 @@ above tricks (e.g. it is advised to try setting a maximum :math:`\Delta V` first
     In this file the boundaries as used in the optimization, regarding time of flight, are defined, depending on the planet
     that defines the end of a leg. One can increase the minima (and possibly increase the maxima) to move (and extend) the
     time of flight range of the Pareto front.
+
+Saved files
+---------------------
+
+The data files and Pareto fronts are saved to a subdirectory of the directory where the executable python scripts are
+located per planet sequence that was optimized. The subdirectory's name starts either with ```MGA_noDSM_`` or ``MGA_DSM_``
+and ends with an abbreviation of the planet sequence. This subdirectory now only contains an ``optimization`` subdirectory,
+but will be extended with subdirectories with further analysis results later on. The ``optimization`` subdirectory contains
+the Pareto front data and a ``generations`` subdirectory containing the data of ever 100th generation. The file structure
+is depicted below.
+
+.. figure:: _static/file_structure_optimization.png

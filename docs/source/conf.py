@@ -17,8 +17,8 @@
 # -- Project information -----------------------------------------------------
 
 project = 'CDL-docs'
-copyright = '2021, Concurrent Design Lab AE'
-author = 'Concurrent Design Lab AE'
+copyright = '2021, Collaborative Design Lab AE'
+author = 'Collaborative Design Lab AE'
 
 
 # -- General configuration ---------------------------------------------------
