@@ -3,11 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="ec58a93e-4097-4ffb-88b1-aa0858e270f7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/_src_tudatpy/_mga_dsm/analysis.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_src_tudatpy/_mga_dsm/analysis.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/_src_tudatpy/_mga_dsm/optimization.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_src_tudatpy/_mga_dsm/optimization.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/_src_tudatpy/_mga_dsm/save_to_excel.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_src_tudatpy/_mga_dsm/save_to_excel.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/_src_tudatpy/_orbiter/analysis.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_src_tudatpy/_orbiter/analysis.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/_src_tudatpy/_orbiter/save_to_excel.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/_src_tudatpy/_orbiter/save_to_excel.rst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,7 +30,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../CDL" />
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
   </component>
   <component name="RecentsManager">
@@ -81,6 +76,10 @@
       <workItem from="1640886404795" duration="11000" />
       <workItem from="1640886661544" duration="1635000" />
       <workItem from="1640893133395" duration="50000" />
+      <workItem from="1641123468171" duration="17000" />
+      <workItem from="1641123486876" duration="42000" />
+      <workItem from="1641127895333" duration="2000" />
+      <workItem from="1641128060511" duration="10000" />
     </task>
     <servers />
   </component>
